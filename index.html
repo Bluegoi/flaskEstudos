@@ -25,137 +25,99 @@
       padding-left: 0.5rem;
       margin-bottom: 0.3rem;
     }
-    
-    #frutas_0 { color: cyan; }
-    #app_4 { color: orange; }
-    #app_5 { color: orange; }
-    #app_6 { color: orange; }
-    #app_7 { color: orange; }
-    #app_8 { color: orange; }
-
-    #app_10 { color: rgb(10, 179, 221); }
-    #app_11 { color:  rgb(10, 179, 221); }
-    #app_12 { color:  rgb(10, 179, 221); }
-
-    #app_14 { color:  rgb(0, 228, 133); }
-    #app_15 { color:  rgb(0, 228, 133); }
-    #app_16 { color:  rgb(0, 228, 133); }
-    #app_17 { color:  rgb(0, 228, 133); }
-    #app_18 { color:  rgb(0, 228, 133); }
-    #app_19 { color:  rgb(0, 228, 133); }
-
-    #fruta_html_3 { color:  rgb(0, 228, 133); }
-
-    #fruta_html_6 { color:  rgb(241, 51, 26); }
-    #fruta_html_7 { color:  rgb(241, 51, 26); }
-    #fruta_html_8 { color:  rgb(241, 51, 26); }
-    #fruta_html_9 { color:  rgb(241, 51, 26); }
-
-
-    #index_html_4 { color:  rgb(0, 189, 247); }
-    #index_html_9 { color:  rgb(0, 247, 21); }
-    #index_html_11 { color:  rgb(0, 247, 21); }
-    #index_html_13 { color:  rgb(0, 247, 21); }
-
-
-
-
-
-
   </style>
 </head>
 <body>
   <div id="container"></div>
-<script>
-  const blocos = {
-    'app': [
-      "from flask import Flask, render_template",
-      "from frutas import FrutaModel",
-      "app = Flask(__name__)",
-      " ",
-      "f1 = FrutaModel()",
-      "f1.set_id(1)",
-      "f1.set_nome(\"Maçã\")",
-      "f1.set_cor(\"Vermelha\")",
-      "lista_frutas = [f1]",
-      " ",
-      "@app.route('/')",
-      "def exibir_lista_frutas():",
-      "    return render_template(\"index.html\", lista_frutas=lista_frutas)",
-      " ",
-      "@app.route('/<int:id>')",
-      "def exibir_detalhes_fruta(id):",
-      "    for fruta_atual in lista_frutas:",
-      "        if fruta_atual.get_id() == id:",
-      "            return render_template(\"fruta.html\", fruta_detalhe=fruta_atual)",
-      "    return \"Fruta não encontrada\", 404"
-    ],
-    'frutas': [
-      "class FrutaModel:",
-      "    def __init__(self):",
-      "        self._id = 0",
-      "        self._nome = \"\" ",
-      "        self._cor = \"\" ",
-      " ",
-      "    def get_id(self):",
-      "        return self._id",
-      "    def set_id(self, id):",
-      "        self._id = id",
-      " ",
-      "    def get_nome(self):",
-      "        return self._nome",
-      "    def set_nome(self, nome):",
-      "        self._nome = nome",
-      " ",
-      "    def set_cor(self, cor):",
-      "        self._cor = cor",
-      "    def get_cor(self):",
-      "        return self._cor"
-    ],
-    'index_html': [
-      "<!DOCTYPE html>",
-      "<html>",
-      "<head>",
-      "    <title>Frutas</title>",
-      "    <link rel=\"stylesheet\" href=\"{{ url_for('static', filename='style.css') }}\">",
-      "</head>",
-      "<body>",
-      "    <h1>Lista de Frutas</h1>",
-      "    <ul>",
-      "        {% for fruta_atual in lista_frutas %}",
-      "            <li>",
-      "                <a href=\"/{{ fruta_atual.get_id() }}\">{{ fruta_atual.get_nome() }}</a>",
-      "            </li>",
-      "        {% endfor %}",
-      "    </ul>",
-      "</body>",
-      "</html>"
-    ],
-    'fruta_html': [
-      "<!DOCTYPE html>",
-      "<html>",
-      "<head>",
-      "    <title>{{ fruta_detalhe.get_nome() }}</title>",
-      "</head>",
-      "<body>",
-      " ",
-      "    <h1>{{ fruta_detalhe.get_nome() }}</h1>",
-      "    <p>Cor: {{ fruta_detalhe.get_cor() }}</p>",
-      "    <p>ID: {{ fruta_detalhe.get_id() }}</p>",
-      "    <a href=\"/\">Voltar</a>",
-      " ",
-      "</body>",
-      "</html>"
-    ]
-  };
-
+  <script>
+    const blocos = {
+      'app': [
+        "from flask import Flask, render_template",
+        "from frutas import FrutaModel",
+        "",
+        "app = Flask(__name__)",
+        "",
+        "f1 = FrutaModel()",
+        "f1.set_id(1)",
+        "f1.set_nome(\"Maçã\")",
+        "f1.set_cor(\"Vermelha\")",
+        "",
+        "lista_frutas = [f1]",
+        "",
+        "@app.route('/')",
+        "def exibir_lista_frutas():",
+        "    return render_template(\"index.html\", lista_frutas=lista_frutas)",
+        "",
+        "@app.route('/<int:id>')",
+        "def exibir_detalhes_fruta(id):",
+        "    for fruta_atual in lista_frutas:",
+        "        if fruta_atual.get_id() == id:",
+        "            return render_template(\"fruta.html\", fruta_detalhe=fruta_atual)",
+        "    return \"Fruta não encontrada\", 404"
+      ],
+      'frutas': [
+        "class FrutaModel:",
+        "    def __init__(self):",
+        "        self._id = 0",
+        "        self._nome = \"\"",
+        "        self._cor = \"\"",
+        "",
+        "    def get_id(self):",
+        "        return self._id",
+        "    def set_id(self, id):",
+        "        self._id = id",
+        "",
+        "    def get_nome(self):",
+        "        return self._nome",
+        "    def set_nome(self, nome):",
+        "        self._nome = nome",
+        "",
+        "    def get_cor(self):",
+        "        return self._cor",
+        "    def set_cor(self, cor):",
+        "        self._cor = cor"
+      ],
+      'index_html': [
+        "<!DOCTYPE html>",
+        "<html>",
+        "<head>",
+        "    <title>Frutas</title>",
+        "    <link rel=\"stylesheet\" href=\"{{ url_for('static', filename='style.css') }}\">",
+        "</head>",
+        "<body>",
+        "    <h1>Lista de Frutas</h1>",
+        "    <ul>",
+        "        {% for fruta_atual in lista_frutas %}",
+        "            <li>",
+        "                <a href=\"/{{ fruta_atual.get_id() }}\">{{ fruta_atual.get_nome() }}</a>",
+        "            </li>",
+        "        {% endfor %}",
+        "    </ul>",
+        "</body>",
+        "</html>"
+      ],
+      'fruta_html': [
+        "<!DOCTYPE html>",
+        "<html>",
+        "<head>",
+        "    <title>{{ fruta_detalhe.get_nome() }}</title>",
+        "</head>",
+        "<body>",
+        "    <h1>{{ fruta_detalhe.get_nome() }}</h1>",
+        "    <p>Cor: {{ fruta_detalhe.get_cor() }}</p>",
+        "    <p>ID: {{ fruta_detalhe.get_id() }}</p>",
+        "    <a href=\"/\">Voltar</a>",
+        "</body>",
+        "</html>"
+      ]
+    };
 
     const container = document.getElementById('container');
 
     async function escreverLetraPorLetra(texto, destino) {
       for (let i = 0; i < texto.length; i++) {
         destino.textContent += texto[i];
-        await esperar(65); 
+        await esperar(65);
       }
     }
 
@@ -170,7 +132,7 @@
         for (let i = 0; i < blocos[titulo].length; i++) {
           const linhaEl = document.createElement('div');
           linhaEl.className = 'linha';
-          linhaEl.id = `${titulo}_${i}`; 
+          linhaEl.id = `${titulo}_${i}`;
           linhaEl.textContent = '';
           container.appendChild(linhaEl);
           await escreverLetraPorLetra(blocos[titulo][i], linhaEl);
