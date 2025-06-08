@@ -80,14 +80,14 @@
     "lista_frutas = [f1]",
     " ",
     "@app.route('/')",
-    "def exibir_lista_frutas():",
+    "def exibirListaFrutas():",
     "    return render_template(\"index.html\", lista_frutas=lista_frutas)",
     " ",
     "@app.route('/<int:id>')",
-    "def exibir_detalhes_fruta(id):",
-    "    for fruta_atual in lista_frutas:",
-    "        if fruta_atual.get_id() == id:",
-    "            return render_template(\"fruta.html\", fruta_detalhe=fruta_atual)",
+    "def exibirDetalhesFruta(id):",
+    "    for frutaAtual in lista_frutas:",
+    "        if frutaAtual.get_id() == id:",
+    "            return render_template(\"fruta.html\", fruta_detalhe=frutaAtual)",
     "    return \"Fruta não encontrada\", 404"
   ],
   'frutas': [
@@ -122,9 +122,9 @@
     "<body>",
     "    <h1>Lista de Frutas</h1>",
     "    <ul>",
-    "        {% for fruta_atual in lista_frutas %}",
+    "        {% for frutaAtual in lista_frutas %}",
     "            <li>",
-    "                <a href=\"/{{ fruta_atual.get_id() }}\">{{ fruta_atual.get_nome() }}</a>",
+    "                <a href=\"/{{ frutaAtual.get_id() }}\">{{ frutaAtual.get_nome() }}</a>",
     "            </li>",
     "        {% endfor %}",
     "    </ul>",
@@ -148,6 +148,7 @@
     "</html>"
   ]
 };
+
 
 
     const container = document.getElementById('container');
