@@ -25,6 +25,43 @@
       padding-left: 0.5rem;
       margin-bottom: 0.3rem;
     }
+    #app_7 { background-color: #333; color: lime; }
+    #frutas_0 { color: cyan; }
+    #app_4 { color: orange; }
+    #app_5 { color: orange; }
+    #app_6 { color: orange; }
+    #app_7 { color: orange; }
+    #app_8 { color: orange; }
+
+    #app_10 { color: rgb(10, 179, 221); }
+    #app_11 { color:  rgb(10, 179, 221); }
+    #app_12 { color:  rgb(10, 179, 221); }
+
+    #app_14 { color:  rgb(0, 228, 133); }
+    #app_15 { color:  rgb(0, 228, 133); }
+    #app_16 { color:  rgb(0, 228, 133); }
+    #app_17 { color:  rgb(0, 228, 133); }
+    #app_18 { color:  rgb(0, 228, 133); }
+    #app_19 { color:  rgb(0, 228, 133); }
+
+    #fruta_html_3 { color:  rgb(0, 228, 133); }
+
+    #fruta_html_6 { color:  rgb(241, 51, 26); }
+    #fruta_html_7 { color:  rgb(241, 51, 26); }
+    #fruta_html_8 { color:  rgb(241, 51, 26); }
+    #fruta_html_9 { color:  rgb(241, 51, 26); }
+
+
+    #index_html_4 { color:  rgb(0, 189, 247); }
+    #index_html_9 { color:  rgb(0, 247, 21); }
+    #index_html_11 { color:  rgb(0, 247, 21); }
+    #index_html_13 { color:  rgb(0, 247, 21); }
+
+
+
+
+
+
   </style>
 </head>
 <body>
@@ -117,7 +154,7 @@
     async function escreverLetraPorLetra(texto, destino) {
       for (let i = 0; i < texto.length; i++) {
         destino.textContent += texto[i];
-        await esperar(65);
+        await esperar(65); 
       }
     }
 
@@ -132,7 +169,7 @@
         for (let i = 0; i < blocos[titulo].length; i++) {
           const linhaEl = document.createElement('div');
           linhaEl.className = 'linha';
-          linhaEl.id = `${titulo}_${i}`;
+          linhaEl.id = `${titulo}_${i}`; 
           linhaEl.textContent = '';
           container.appendChild(linhaEl);
           await escreverLetraPorLetra(blocos[titulo][i], linhaEl);
@@ -148,3 +185,4 @@
   </script>
 </body>
 </html>
+
