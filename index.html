@@ -123,7 +123,7 @@
     "    <ul>",
     "        {% for frutaAtual in lista_frutas %}",
     "            <li>",
-    "                <a href=\"/{{ frutaAtual.get_id() }}\">{{ frutaAtual.get_nome() }}</a>",
+    "                <a href=\"{{ frutaAtual.get_id() }}\">{{ frutaAtual.get_nome() }}</a>",
     "            </li>",
     "        {% endfor %}",
     "    </ul>",
